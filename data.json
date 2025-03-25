@@ -453,9 +453,15 @@
       },
       {
         "name": "Jessica",
-        "subscriptionActive": false,
+        "subscriptionActive": true,
         "breed": "Snowshoe",
         "pouchSize": "E"
+      },
+      {
+        "name": "Snowbell",
+        "subscriptionActive": false,
+        "breed": "Snowshoe",
+        "pouchSize": "A"
       }
     ]
   },
