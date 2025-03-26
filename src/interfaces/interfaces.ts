@@ -16,3 +16,10 @@ export interface User {
 export interface PriceMap {
     [key: string]: number;
 }
+
+export interface DeliveryDetails {
+    title: string;
+    message: string;
+    totalPrice: number;
+    freeGift: boolean;
+}

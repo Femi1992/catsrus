@@ -1,6 +1,6 @@
 import { Injectable, OnModuleInit, NotFoundException } from '@nestjs/common';
 import * as fs from 'fs/promises';
-import { User, PriceMap } from './interfaces/interfaces';
+import { User, PriceMap, DeliveryDetails } from './interfaces/interfaces';
 
 const prices: PriceMap = {
   A: 55.5,
@@ -17,8 +17,8 @@ export class AppService implements OnModuleInit {
 
   async onModuleInit() {
     try {
-      const rawData = await fs.readFile('data.json', 'utf-8');
-      this.usersData = JSON.parse(rawData);
+      const userDataJson = await fs.readFile('data.json', 'utf-8');
+      this.usersData = JSON.parse(userDataJson);
     } catch (error) {
       console.error('Error loading data.json:', error);
       throw new Error('Failed to load user data');
@@ -40,13 +40,10 @@ export class AppService implements OnModuleInit {
   }
 
   private calculateTotalPrice(user: User): number {
-    return user.cats.reduce((sum, cat) => {
-      if (cat.subscriptionActive) {
-        const price = prices[cat.pouchSize];
-        return sum + (price || 0); // Default to 0 if pouch size is invalid
-      }
-      return sum;
-    }, 0);
+    return user.cats
+      .filter((cat) => cat.subscriptionActive)
+      .map((cat) => prices[cat.pouchSize] || 0)
+      .reduce((sum, price) => sum + price, 0);
   }
 
   private isFreeGiftApplicable(totalPrice: number): boolean {
@@ -64,7 +61,7 @@ export class AppService implements OnModuleInit {
     return `Hey ${user.firstName}! In two days' time, we'll be charging you for your next order for ${catNames.join(', ').replace(/, ([^,]*)$/, ' and $1')}'s fresh food.`;
   }
 
-  getNextDelivery(userId: string): any {
+  getNextDelivery(userId: string): DeliveryDetails {
     const user = this.findUserById(userId);
     const catNames = this.getActiveCatNames(user);
     const totalPrice = this.calculateTotalPrice(user);

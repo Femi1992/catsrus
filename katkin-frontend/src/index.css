@@ -19,7 +19,6 @@ code {
 .next-delivery {
   border: 1px solid #ddd;
   border-radius: 8px;
-  /* padding: 16px; */
   max-width: 800px;
   margin: 14rem auto;
   background-color: #fff;
@@ -47,11 +46,7 @@ code {
 }
 
 .free-gift-banner {
-    /* float: right; */
-    /* display: flex
-; */
 position: absolute;
-/* top: -8px; */
 right: -22px;
 background-color: #ff69b4;
 color: #fff;
@@ -120,14 +115,13 @@ transform-origin: top right;
   }
 
   .delivery-content {
-    flex-direction: column; /* Stack content vertically */
-    gap: 8px; /* Reduce gap between elements */
+    flex-direction: column; 
+    gap: 8px; 
   }
 
   .cat-image {
-    flex: none; /* Remove flex growth */
-    text-align: center; /* Center the image */
-    margin-top: -45px;
+    flex: none; 
+    text-align: center; 
   }
 
   .cat-image img {
@@ -138,18 +132,16 @@ transform-origin: top right;
 
   .free-gift-banner {
     left: 35%;
-    /* transform: translate(10px, 10px); */
     height: 1rem;
     position: absolute;
     width: 7rem;
-    /* margin: 0 auto; */
     text-align: center;
     transform: rotate(-15deg);
     bottom: 0;
   }
 
   .delivery-details {
-    text-align: center; /* Center the text content */
+    text-align: center;
   }
 
   .buttons {
@@ -161,6 +153,6 @@ transform-origin: top right;
 
   .buttons .see-details,
   .buttons .edit-delivery {
-    width: 100%; /* Make buttons take full width */
+    width: 100%;
   }
 }
