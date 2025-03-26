@@ -39,27 +39,27 @@ const FetchNextDelivery: React.FC<{ userId: string }> = ({ userId }) => {
 
   return (
     <div className="next-delivery">
-      <div className="delivery-content">
         <div className="cat-image">
           <img
             src={catImage} // Replace with your desired cat image URL
             alt=""
           />
-          {deliveryInfo.freeGift && (
-            <div className="free-gift-banner">FREE GIFT</div>
-          )}
         </div>
-        <div className="delivery-details">
-          <h1 className='delivery-details'>{deliveryInfo.title}</h1>
-          <p>{deliveryInfo.message}</p>
-          <p><strong>Total price: £{deliveryInfo.totalPrice.toFixed(2)}</strong></p>
-          <div className="buttons">
-            <button className="see-details">SEE DETAILS</button>
-            <button className="edit-delivery">EDIT DELIVERY</button>
+        <div className="delivery-content">
+            {deliveryInfo.freeGift && (
+              <div className="free-gift-banner">FREE GIFT</div>
+            )}
           </div>
-        </div>
+          <div className="delivery-details">
+            <h1 className='delivery-details-tile'>{deliveryInfo.title}</h1>
+            <p>{deliveryInfo.message}</p>
+            <p><strong>Total price: £{deliveryInfo.totalPrice.toFixed(2)}</strong></p>
+            <div className="buttons">
+              <button className="see-details">SEE DETAILS</button>
+              <button className="edit-delivery">EDIT DELIVERY</button>
+            </div>
+          </div>
       </div>
-    </div>
   );
 };
 

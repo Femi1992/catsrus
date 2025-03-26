@@ -11,16 +11,23 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.next-delivery-page{
+  height: 100vh;
+}
+
 .next-delivery {
   border: 1px solid #ddd;
   border-radius: 8px;
-  padding: 16px;
+  /* padding: 16px; */
   max-width: 800px;
-  margin: 16px auto;
+  margin: 14rem auto;
   background-color: #fff;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   display: flex;
-  flex-direction: column;
+  height: 16rem;
+  flex-direction: row;
+  position: relative;
 }
 
 .delivery-content {
@@ -40,21 +47,25 @@ code {
 }
 
 .free-gift-banner {
-  position: absolute;
-  top: -8px;
-  right: -582px;
-  background-color: #ff69b4;
-  color: #fff;
-  font-weight: bold;
-  padding: 4px 8px;
-  border-radius: 4px;
-  font-size: 0.9rem;
-  transform: rotate(15deg);
-  transform-origin: top right;
+    /* float: right; */
+    /* display: flex
+; */
+position: absolute;
+/* top: -8px; */
+right: -22px;
+background-color: #ff69b4;
+color: #fff;
+font-weight: bold;
+padding: 4px 8px;
+border-radius: 4px;
+font-size: 0.9rem;
+transform: rotate(15deg);
+transform-origin: top right;
 }
 
 .delivery-details {
   flex: 2;
+  margin-left: 15px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -74,6 +85,7 @@ code {
   display: flex;
   gap: 8px;
   margin-top: 16px;
+  padding-bottom: 30px;
 }
 
 .buttons .see-details,
@@ -98,9 +110,13 @@ code {
 /* Add responsive styles for mobile devices */
 @media (max-width: 768px) {
   .next-delivery {
-    max-width: 100%; /* Make the container take full width */
-    margin: 16px; /* Add some margin around */
-    padding: 16px; /* Ensure padding remains consistent */
+    max-width: 100%;
+    flex-direction: column;
+    height: 25rem;
+  }
+
+  .delivery-details p {
+    margin-top: -8px;
   }
 
   .delivery-content {
@@ -111,20 +127,25 @@ code {
   .cat-image {
     flex: none; /* Remove flex growth */
     text-align: center; /* Center the image */
+    margin-top: -45px;
   }
 
   .cat-image img {
-    max-width: 150px; /* Limit the image size */
-    margin: 0 auto; /* Center the image horizontally */
+    max-width: 150px; 
+    margin: 0 auto; 
+    border-radius: 50%;
   }
 
   .free-gift-banner {
-    position: relative; /* Change to relative for better placement */
-    top: 8px; /* Adjust position */
-    right: 0; /* Center it horizontally */
-    margin: 0 auto; /* Center the banner */
-    transform: rotate(0deg); /* Remove rotation for better readability */
-    text-align: center; /* Center the text */
+    left: 35%;
+    /* transform: translate(10px, 10px); */
+    height: 1rem;
+    position: absolute;
+    width: 7rem;
+    /* margin: 0 auto; */
+    text-align: center;
+    transform: rotate(-15deg);
+    bottom: 0;
   }
 
   .delivery-details {
@@ -132,8 +153,10 @@ code {
   }
 
   .buttons {
-    flex-direction: column; /* Stack buttons vertically */
-    gap: 8px; /* Add spacing between buttons */
+    padding-bottom: 3rem;
+    flex-direction: row;
+    gap: 30px;
+    margin-top: -25px;
   }
 
   .buttons .see-details,
