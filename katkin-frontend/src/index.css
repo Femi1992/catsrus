@@ -94,3 +94,50 @@ code {
   background-color: #007bff;
   color: #fff;
 }
+
+/* Add responsive styles for mobile devices */
+@media (max-width: 768px) {
+  .next-delivery {
+    max-width: 100%; /* Make the container take full width */
+    margin: 16px; /* Add some margin around */
+    padding: 16px; /* Ensure padding remains consistent */
+  }
+
+  .delivery-content {
+    flex-direction: column; /* Stack content vertically */
+    gap: 8px; /* Reduce gap between elements */
+  }
+
+  .cat-image {
+    flex: none; /* Remove flex growth */
+    text-align: center; /* Center the image */
+  }
+
+  .cat-image img {
+    max-width: 150px; /* Limit the image size */
+    margin: 0 auto; /* Center the image horizontally */
+  }
+
+  .free-gift-banner {
+    position: relative; /* Change to relative for better placement */
+    top: 8px; /* Adjust position */
+    right: 0; /* Center it horizontally */
+    margin: 0 auto; /* Center the banner */
+    transform: rotate(0deg); /* Remove rotation for better readability */
+    text-align: center; /* Center the text */
+  }
+
+  .delivery-details {
+    text-align: center; /* Center the text content */
+  }
+
+  .buttons {
+    flex-direction: column; /* Stack buttons vertically */
+    gap: 8px; /* Add spacing between buttons */
+  }
+
+  .buttons .see-details,
+  .buttons .edit-delivery {
+    width: 100%; /* Make buttons take full width */
+  }
+}
