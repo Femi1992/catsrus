@@ -15,10 +15,6 @@ const prices: PriceMap = {
 export class AppService implements OnModuleInit {
   private usersData: User[] = [];
 
-  // constructor() {
-  //   const rawData = fs.readFileSync('data.json', 'utf-8');
-  //   this.usersData = JSON.parse(rawData);
-  // }
   async onModuleInit() {
     try {
       const rawData = await fs.readFile('data.json', 'utf-8');
@@ -29,7 +25,6 @@ export class AppService implements OnModuleInit {
     }
   }
 
-  // Helper function to find a user by ID
   private findUserById(userId: string): User {
     const user = this.usersData.find((u) => u.id === userId);
     if (!user) {
@@ -38,14 +33,12 @@ export class AppService implements OnModuleInit {
     return user;
   }
 
-  // Helper function to get active cat names
   private getActiveCatNames(user: User): string[] {
     return user.cats
       .filter((cat) => cat.subscriptionActive)
       .map((cat) => cat.name);
   }
 
-  // Helper function to calculate the total price
   private calculateTotalPrice(user: User): number {
     return user.cats.reduce((sum, cat) => {
       if (cat.subscriptionActive) {
@@ -56,12 +49,10 @@ export class AppService implements OnModuleInit {
     }, 0);
   }
 
-  // Helper function to determine if a free gift is applicable
   private isFreeGiftApplicable(totalPrice: number): boolean {
     return totalPrice > 120;
   }
 
-  // Helper function to format the title
   private formatTitle(catNames: string[]): string {
     if (catNames.length > 1) {
       return `Your next delivery for ${catNames.slice(0, -1).join(', ')} and ${catNames[catNames.length - 1]}`;
@@ -69,12 +60,10 @@ export class AppService implements OnModuleInit {
     return `Your next delivery for ${catNames[0]}`;
   }
 
-  // Helper function to format the message
   private formatMessage(user: User, catNames: string[]): string {
     return `Hey ${user.firstName}! In two days' time, we'll be charging you for your next order for ${catNames.join(', ').replace(/, ([^,]*)$/, ' and $1')}'s fresh food.`;
   }
 
-  // Refactored getNextDelivery method
   getNextDelivery(userId: string): any {
     const user = this.findUserById(userId);
     const catNames = this.getActiveCatNames(user);
@@ -86,7 +75,7 @@ export class AppService implements OnModuleInit {
     return {
       title,
       message,
-      totalPrice: parseFloat(totalPrice.toFixed(2)), // Ensure price is formatted to 2 decimal places
+      totalPrice: parseFloat(totalPrice.toFixed(2)), 
       freeGift,
     };
   }
