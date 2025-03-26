@@ -135,3 +135,17 @@ Either:
 2. Or, if option 1 is unfeasible, zip up all your code (please do not include `node_modules`!) and send it via email to tech@katkin.com
 
 We would also appreciate it if you can write a sentence or two about what you think of this test and/or and how we could improve it.
+
+# SETUP
+
+From the root of the project run
+1. make install-backend
+2. make install-frontend
+
+# Run tests
+
+make test-backend
+
+# Start app
+
+make start-app

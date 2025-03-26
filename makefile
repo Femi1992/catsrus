@@ -1,26 +1,26 @@
 NPM := npm
 
-.PHONY: setup start-backend start-frontend start-app test-backend test-frontend
+.PHONY: setup install-backend install-frontend start-backend start-frontend start-app test-backend
 
-setup:
-	cd katkin-frontend && npm install
-	cd .. && npm install
+setup: install-backend install-frontend
+
+install-backend:
+	$(NPM) install
+
+install-frontend:
+	cd katkin-frontend && $(NPM) install
 
 # Command to start the backend server in development mode
 start-backend:
-	cd src && npm run start:dev
+	cd src && $(NPM) run start:dev
 
 # Command to start the frontend React app
 start-frontend:
-	cd katkin-frontend && npm start
+	cd katkin-frontend && $(NPM) start
 
 start-app:
 	make start-backend & make start-frontend
 
 # Command to run backend unit tests
 test-backend:
-	cd src && npm run test
-
-# Command to run frontend unit tests
-test-frontend:
-	cd katkin-frontend && npm test
+	cd src && $(NPM) run test
