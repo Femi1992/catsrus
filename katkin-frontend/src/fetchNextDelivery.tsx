@@ -50,9 +50,9 @@ const FetchNextDelivery: React.FC<{ userId: string }> = ({ userId }) => {
           )}
         </div>
         <div className="delivery-details">
-          <h1>{deliveryInfo.title}</h1>
+          <h1 className='delivery-details-tile'>{deliveryInfo.title}</h1>
           <p>{deliveryInfo.message}</p>
-          <p><strong>Total price:</strong> £{deliveryInfo.totalPrice.toFixed(2)}</p>
+          <p><strong>Total price: £{deliveryInfo.totalPrice.toFixed(2)}</strong></p>
           <div className="buttons">
             <button className="see-details">SEE DETAILS</button>
             <button className="edit-delivery">EDIT DELIVERY</button>

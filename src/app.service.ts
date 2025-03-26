@@ -61,7 +61,7 @@ export class AppService implements OnModuleInit {
   }
 
   private formatMessage(user: User, catNames: string[]): string {
-    return `Hey ${user.firstName}! In two days' time, we'll be charging you for your next order for ${catNames.join(', ').replace(/, ([^,]*)$/, ' and $1')}'s fresh food.`;
+    return `Hey ${user.firstName} ${user.lastName}! In two days' time, we'll be charging you for your next order for ${catNames.join(', ').replace(/, ([^,]*)$/, ' and $1')}'s fresh food.`;
   }
 
   getNextDelivery(userId: string): any {

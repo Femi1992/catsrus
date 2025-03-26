@@ -41,14 +41,16 @@ code {
 
 .free-gift-banner {
   position: absolute;
-  top: 8px;
-  right: 8px;
+  top: -8px;
+  right: -582px;
   background-color: #ff69b4;
   color: #fff;
   font-weight: bold;
   padding: 4px 8px;
   border-radius: 4px;
   font-size: 0.9rem;
+  transform: rotate(15deg);
+  transform-origin: top right;
 }
 
 .delivery-details {
@@ -60,7 +62,7 @@ code {
 
 .delivery-details h1 {
   font-size: 1.5rem;
-  color: #333;
+  color: #28a745
 }
 
 .delivery-details p {
