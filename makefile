@@ -1,10 +1,4 @@
-# add make command for setting up backend and frontend
-# add make command for running backend unit tests
-# Command to install dependencies for both backend and frontend
 NPM := npm
-
-# FLASK_SERVER_DIR := flask-server
-# CLIENT_DIR := client
 
 .PHONY: setup start-backend start-frontend start-app test-backend test-frontend
 

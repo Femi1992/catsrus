@@ -5,7 +5,7 @@ import { AppService } from './app.service';
 export class AppController {
   constructor(private readonly appService: AppService) {}
 
-  @Get('/comms/your-next-delivery/:id') // Update the path
+  @Get('/comms/your-next-delivery/:id')
   getNextDelivery(@Param('id') userId: string): any {
     return this.appService.getNextDelivery(userId);
   }
