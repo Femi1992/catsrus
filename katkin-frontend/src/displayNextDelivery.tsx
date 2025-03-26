@@ -12,7 +12,6 @@ const NextDeliveryPage: React.FC = () => {
   console.log("inside display next component", id)
   return (
     <div className="next-delivery-page">
-      <h1>Next Delivery Details</h1>
       <FetchNextDelivery userId={id} />{' '}
     </div>
   );

@@ -1,9 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import catImage from './assets/images/katkin.jpeg';
 
 interface NextDeliveryResponse {
   title: string;
   message: string;
+  totalPrice: number;
+  freeGift: boolean;
 }
 
 const FetchNextDelivery: React.FC<{ userId: string }> = ({ userId }) => {
@@ -13,11 +16,9 @@ const FetchNextDelivery: React.FC<{ userId: string }> = ({ userId }) => {
   useEffect(() => {
     const fetchNextDelivery = async () => {
       try {
-        console.log("inside fetch next delivery", userId)
         const response = await axios.get<NextDeliveryResponse>(
           `http://localhost:8000/comms/your-next-delivery/${userId}`
         );
-        console.log("response", response)
         setDeliveryInfo(response.data);
       } catch (err) {
         console.error('Error fetching delivery information:', err);
@@ -38,8 +39,26 @@ const FetchNextDelivery: React.FC<{ userId: string }> = ({ userId }) => {
 
   return (
     <div className="next-delivery">
-      <h1>{deliveryInfo.title}</h1>
-      <p>{deliveryInfo.message}</p>
+      <div className="delivery-content">
+        <div className="cat-image">
+          <img
+            src={catImage} // Replace with your desired cat image URL
+            alt=""
+          />
+          {deliveryInfo.freeGift && (
+            <div className="free-gift-banner">FREE GIFT</div>
+          )}
+        </div>
+        <div className="delivery-details">
+          <h1>{deliveryInfo.title}</h1>
+          <p>{deliveryInfo.message}</p>
+          <p><strong>Total price:</strong> £{deliveryInfo.totalPrice.toFixed(2)}</p>
+          <div className="buttons">
+            <button className="see-details">SEE DETAILS</button>
+            <button className="edit-delivery">EDIT DELIVERY</button>
+          </div>
+        </div>
+      </div>
     </div>
   );
 };
