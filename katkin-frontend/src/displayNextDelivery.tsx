@@ -1,6 +1,6 @@
 import React from 'react';
 import { useParams } from 'react-router-dom';
-import NextDelivery from './userNextDelivery';
+import FetchNextDelivery from './fetchNextDelivery';
 
 const NextDeliveryPage: React.FC = () => {
   const { id } = useParams<{ id: string }>(); // Extract the ID from the URL
@@ -9,10 +9,11 @@ const NextDeliveryPage: React.FC = () => {
     return <div>Error: No user ID provided in the URL.</div>;
   }
 
+  console.log("inside display next component", id)
   return (
     <div className="next-delivery-page">
       <h1>Next Delivery Details</h1>
-      <NextDelivery userId={id} /> {/* Pass the ID to the NextDelivery component */}
+      <FetchNextDelivery userId={id} />{' '}
     </div>
   );
 };

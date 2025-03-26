@@ -6,16 +6,21 @@ interface NextDeliveryResponse {
   message: string;
 }
 
-const NextDelivery: React.FC<{ userId: string }> = ({ userId }) => {
+const FetchNextDelivery: React.FC<{ userId: string }> = ({ userId }) => {
   const [deliveryInfo, setDeliveryInfo] = useState<NextDeliveryResponse | null>(null);
   const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
     const fetchNextDelivery = async () => {
       try {
-        const response = await axios.get<NextDeliveryResponse>(`http://localhost:3000/comms/your-next-delivery/${userId}`);
+        console.log("inside fetch next delivery", userId)
+        const response = await axios.get<NextDeliveryResponse>(
+          `http://localhost:8000/comms/your-next-delivery/${userId}`
+        );
+        console.log("response", response)
         setDeliveryInfo(response.data);
       } catch (err) {
+        console.error('Error fetching delivery information:', err);
         setError('Failed to fetch delivery information.');
       }
     };
@@ -39,4 +44,4 @@ const NextDelivery: React.FC<{ userId: string }> = ({ userId }) => {
   );
 };
 
-export default NextDelivery;
+export default FetchNextDelivery;
