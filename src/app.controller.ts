@@ -10,4 +10,3 @@ export class AppController {
     return this.appService.getNextDelivery(userId);
   }
 }
-//  http://localhost:3000/comms/your-next-delivery/c1307701-fe57-4be6-bdc5-184700d69f4d

@@ -9,7 +9,6 @@ const NextDeliveryPage: React.FC = () => {
     return <div>Error: No user ID provided in the URL.</div>;
   }
 
-  console.log("inside display next component", id)
   return (
     <div className="next-delivery-page">
       <FetchNextDelivery userId={id} />{' '}
