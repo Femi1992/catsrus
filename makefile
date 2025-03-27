@@ -8,7 +8,7 @@ install-backend:
 	$(NPM) install
 
 install-frontend:
-	cd katkin-frontend && $(NPM) install
+	cd katkin-frontend && $(NPM) install --force
 
 # Command to start the backend server in development mode
 start-backend:
